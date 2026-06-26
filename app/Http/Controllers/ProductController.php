@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
@@ -10,4 +10,12 @@ class ProductController extends Controller
     {
         return view('all-products');
     }
+
+    public function test()
+    {
+        echo "test";
+    }
 }
+
+
+
