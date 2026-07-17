@@ -2,20 +2,29 @@
 
 namespace App\Http\Controllers;
 
-// use Illuminate\Http\Request;
+use App\Models\Product;
+use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function index()
+    public function create()
     {
-        return view('all-products');
+        return view('product.create');
     }
 
-    public function test()
+    public function store(Request $request)
     {
-        echo "test";
+        $request->validate([
+            'name' => ['required', 'string', 'max:255', 'min:3'],
+            'quantity' => ['required', 'integer', 'min:0'],
+        ]);
+
+        $product = new Product();
+        $product->name = $request->name;
+        $product->quantity = $request->quantity;
+        $product->available = $request->available;
+
+        $product->save();
+        return redirect()->route('home');
     }
 }
-
-
-
