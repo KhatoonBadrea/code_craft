@@ -24,4 +24,15 @@ require __DIR__ . '/auth.php';
 Route::get('/create_products', [ProductController::class, 'create'])->name('products.create')->middleware('auth');
 Route::post('/store_products', [ProductController::class, 'store'])->name('products.store')->middleware('auth');
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-Route::get('/products',[ProductController::class,'index'])->name('products');
+Route::get('/products', [ProductController::class, 'index'])->name('products');
+
+Route::get('/available_products', [ProductController::class, 'available_products'])->name('available_products');
+
+Route::get('/search', [ProductController::class, 'search'])->name('search');
+
+
+Route::get('/edit.products{product}', [ProductController::class, 'edit'])->name('edit');
+Route::put('/update.products{product}', [ProductController::class, 'update'])->name('update');
+
+
+Route::delete('/delete.products{product}', [ProductController::class, 'delete'])->name('delete');

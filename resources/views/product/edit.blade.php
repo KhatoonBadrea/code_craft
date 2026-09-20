@@ -8,19 +8,18 @@
 </head>
 
 <body>
-    <h1>create new product</h1>
-    <form action="{{ route('products.store') }}" method="post">
+    <h1>Edit product</h1>
+
+    <form action="{{ route('update',$product->id) }}" method="post">
         @csrf
+        @method('put')
         <label for="name"> Producte Name:</label>
-        <input type="text" name='name'><br><br>
+        <input type="text" name='name' value="{{ $product->name }}"><br><br>
 
         <label for="quantity"> Quantity:</label>
-        <input type="number" name='quantity'><br><br>
+        <input type="number" name='quantity' value="{{ $product->quantity }}"><br><br>
 
-        {{-- <select name='available'>
-            <option value='1'>true</option>
-            <option value='0'>false</option>
-        </select> --}}
+
         <input type='submit' value='submit'>
     </form>
 </body>
