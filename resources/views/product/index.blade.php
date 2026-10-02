@@ -27,6 +27,7 @@
             <td>product name</td>
             <td>product quantity</td>
             <td>product available</td>
+            <td>category name</td>
             <td>edit</td>
             <td>delete</td>
         </tr>
@@ -36,6 +37,7 @@
                 <td>{{ $product->name }}</td>
                 <td>{{ $product->quantity }}</td>
                 <td>{{ $product->available }}</td>
+                <td>{{ $product->category_id }}</td>
                 <td><a href="{{ route('edit', $product->id) }}">edit</a></td>
                 <td>
                     <form action="{{ route('delete', $product->id) }}" method=post>

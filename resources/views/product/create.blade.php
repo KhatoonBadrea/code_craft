@@ -16,6 +16,11 @@
 
         <label for="quantity"> Quantity:</label>
         <input type="number" name='quantity'><br><br>
+        <select name="category_id">
+            @foreach ($categories as $category)
+                <option value="{{ $category->id }}">{{ $category->name }} </option>
+            @endforeach
+        </select>
 
         {{-- <select name='available'>
             <option value='1'>true</option>

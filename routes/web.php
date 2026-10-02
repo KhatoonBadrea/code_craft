@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -36,3 +37,6 @@ Route::put('/update.products{product}', [ProductController::class, 'update'])->n
 
 
 Route::delete('/delete.products{product}', [ProductController::class, 'delete'])->name('delete');
+
+
+Route::resource('categories', CategoryController::class);
